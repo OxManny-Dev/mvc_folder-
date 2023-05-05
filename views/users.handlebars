@@ -1,0 +1,17 @@
+<h1>Users!!!!!</h1>
+
+<p>{{sentence}}</p>
+
+<ul>
+  {{#each users}}
+    <li>
+      <a href="/users/{{id}}">{{username}}</a>
+      {{#if over9000}}
+        <p>It's over 9000!</p>
+      {{else}}
+        <p>{{password}}</p>
+      {{/if}}
+    </li>
+  {{/each}}
+</ul>
+
