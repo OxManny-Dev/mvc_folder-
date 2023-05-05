@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {User} = require('../../models');
 
-
+// /users
 // /users  - render all the users
 // /todos - renders all the todos
 router.get('/users', async (req, res) => {
@@ -16,6 +16,7 @@ router.get('/users', async (req, res) => {
     res.status(500).json({error});
   }
 });
+
 
 router.get('/users/:userId', async (req, res) => {
   try {
