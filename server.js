@@ -1,7 +1,11 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const routes = require('./routes');
-const hbs = exphbs.create({});
+const helpers = require('./utils');
+
+const hbs = exphbs.create({
+  helpers
+});
 
 const sequelize = require('./config/connection');
 

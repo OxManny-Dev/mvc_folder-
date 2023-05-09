@@ -1,7 +1,5 @@
 <h1>Users!!!!!</h1>
-
 <p>{{sentence}}</p>
-
 <form>
   <input id='username' type="text" name="username" placeholder="Username"/>
   <input id='password' type="password" name="password" placeholder="Password"/>
@@ -10,14 +8,7 @@
 
 <ul class="userList">
   {{#each users}}
-    <li>
-      <a href="/users/{{id}}">{{username}}</a>
-      {{#if over9000}}
-        <p>It's over 9000!</p>
-      {{else}}
-        <p>{{password}}</p>
-      {{/if}}
-    </li>
+    {{> users/list_render_partials}}
   {{/each}}
 </ul>
 
