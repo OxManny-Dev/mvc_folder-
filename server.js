@@ -25,6 +25,7 @@ app.set('view engine', 'handlebars');
 // it will create a cookie on the browser
 // and cookies are automatically setup between client/server
 // we do not need to do any other additional settings from the client/back-end to
+
 //process the cookie
 const sessionConfig = {
   secret: 'Super secret secret', // normally this should be an environmental variable

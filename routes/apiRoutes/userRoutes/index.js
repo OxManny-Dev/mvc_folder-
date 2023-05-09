@@ -25,10 +25,19 @@ router.post('/signup', async (req, res) => {
       res.json(userData);
     });
 
-
   } catch (error) {
     res.status(500).json({error});
   }
+});
+
+router.post('/logout', (req, res) => {
+
+  res.redoi
+
+  // this will destroy anything saved into req.session
+  req.session.destroy(() => {
+    res.json({ success: true });
+  });
 });
 
 /* if i had another route that calls req.session.save, we can store more stuff into it*/

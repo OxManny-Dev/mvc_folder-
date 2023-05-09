@@ -9,6 +9,8 @@ router.get('/users', async (req, res) => {
     const usersData = await User.findAll();
     const users = usersData.map(user => user.get({plain: true}));
 
+    req.session.save(() => {})
+
     res.render('users', {
       sentence: 'This is a sentence',
       users,

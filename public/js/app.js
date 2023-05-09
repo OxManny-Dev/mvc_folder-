@@ -1,6 +1,8 @@
 const $username = document.getElementById('username');
 const $password = document.getElementById('password');
 const $submitBtn = document.getElementById('submitBtn');
+const $logoutBtn = document.getElementById('logout');
+
 const $userList = document.querySelector('.userList');
 
 $submitBtn.addEventListener('click', async (event) => {
@@ -19,26 +21,39 @@ $submitBtn.addEventListener('click', async (event) => {
       body: JSON.stringify({username, password}),
     });
     const data = await response.json();
-  //  create li html element
+    //  create li html element
     const $li = document.createElement('li');
-  //  create anchor tag
+    //  create anchor tag
     const $a = document.createElement('a');
 //  set href attribute
     $a.setAttribute('href', `/users/${data.id}`);
 //  set text content
     $a.textContent = data.username;
-  //  create p tag
+    //  create p tag
     const $p = document.createElement('p');
-  //  set text content
+    //  set text content
     $p.textContent = data.password;
-  //  append anchor tag to li
+    //  append anchor tag to li
     $li.appendChild($a);
-  //  append p tag to li
+    //  append p tag to li
     $li.appendChild($p);
     // append li to ul
     $userList.appendChild($li);
     $username.value = '';
     $password.value = '';
+  } catch (error) {
+    alert(error);
+  }
+});
+
+
+$logoutBtn.addEventListener('click', async () => {
+  try {
+    const response = await fetch('/api/users/logout', {
+      method: 'POST',
+    });
+    const data = await response.json();
+    location.reload();
   } catch (error) {
     alert(error);
   }
