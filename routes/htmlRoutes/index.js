@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User} = require('../../models');
+const {Todo, User} = require('../../models');
 
 // /users
 // /users  - render all the users
@@ -28,8 +28,18 @@ router.get('/users', async (req, res) => {
 router.get('/users/:userId', async (req, res) => {
   try {
     const {userId} = req.params;
-    const userData = await User.findByPk(userId);
+    const userData = await User.findByPk(userId, {
+      include: [
+        {
+          model: Todo,
+          attributes: ['id', 'todo',],
+        }
+      ]
+    });
+
     const user = userData.get({plain: true});
+
+
     const settings = {
       isCool: true,
       isHungry: false,

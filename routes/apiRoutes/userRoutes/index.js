@@ -32,7 +32,6 @@ router.post('/signup', async (req, res) => {
 
 router.post('/logout', (req, res) => {
 
-  res.redoi
 
   // this will destroy anything saved into req.session
   req.session.destroy(() => {

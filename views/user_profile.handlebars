@@ -1,11 +1,17 @@
-<p>{{user.username}}</p>
-<p>{{user.password}}</p>
+<p>Hello</p>
 
-{{#if settings.isCool}}
-  <p>I am cool</p>
-{{/if}}
+<h1>Todos</h1>
+
+<form>
+  <input id='todo' type="text" name="todo" placeholder="Walk the dog"/>
+  <button id="submitBtn">Submit</button>
+</form>
+
+<ul id="todoList">
+  {{#each user.todos as |todo|}}
+    <li>{{todo.todo}}</li>
+  {{/each}}
+</ul>
 
 
-{{#if settings.isHungry}}
-  <p>I am hungry</p>
-{{/if}}
+<script src="/js/userProfile.js"></script>

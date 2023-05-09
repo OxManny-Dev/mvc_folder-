@@ -13,5 +13,6 @@ Todo.belongsTo(User, {
 
 
 module.exports = {
+  Todo,
   User,
 };

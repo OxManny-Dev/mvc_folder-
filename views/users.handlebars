@@ -1,12 +1,4 @@
-<h1>Users!!!!!</h1>
-<p>{{sentence}}</p>
-<p>{{visitCount}} I am visit count</p>
-
-<button id="logout">Logout</button>
-
-{{#if loggedInUser}}
-  <h1>Welcome {{loggedInUser.username}}</h1>
-{{/if}}
+<h1>Login</h1>
 
 <form>
   <input id='username' type="text" name="username" placeholder="Username"/>
@@ -14,9 +6,4 @@
   <button id="submitBtn">Submit</button>
 </form>
 
-<ul class="userList">
-  {{#each users}}
-    {{> users/list_render_partials}}
-  {{/each}}
-</ul>
 

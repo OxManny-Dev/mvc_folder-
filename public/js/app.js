@@ -3,7 +3,6 @@ const $password = document.getElementById('password');
 const $submitBtn = document.getElementById('submitBtn');
 const $logoutBtn = document.getElementById('logout');
 
-const $userList = document.querySelector('.userList');
 
 $submitBtn.addEventListener('click', async (event) => {
   event.preventDefault();
@@ -21,26 +20,9 @@ $submitBtn.addEventListener('click', async (event) => {
       body: JSON.stringify({username, password}),
     });
     const data = await response.json();
-    //  create li html element
-    const $li = document.createElement('li');
-    //  create anchor tag
-    const $a = document.createElement('a');
-//  set href attribute
-    $a.setAttribute('href', `/users/${data.id}`);
-//  set text content
-    $a.textContent = data.username;
-    //  create p tag
-    const $p = document.createElement('p');
-    //  set text content
-    $p.textContent = data.password;
-    //  append anchor tag to li
-    $li.appendChild($a);
-    //  append p tag to li
-    $li.appendChild($p);
-    // append li to ul
-    $userList.appendChild($li);
-    $username.value = '';
-    $password.value = '';
+
+    location.href = `/users/${data.id}`;
+
   } catch (error) {
     alert(error);
   }
