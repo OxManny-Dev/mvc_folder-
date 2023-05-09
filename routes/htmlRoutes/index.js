@@ -8,10 +8,15 @@ router.get('/users', async (req, res) => {
   try {
     const usersData = await User.findAll();
     const users = usersData.map(user => user.get({plain: true}));
+
     res.render('users', {
       sentence: 'This is a sentence',
-      users
+      users,
+      visitCount: req.session.visitCount || 0,
+      loggedInUser: req.session.user || null,
     });
+
+
   } catch (error) {
     res.status(500).json({error});
   }
