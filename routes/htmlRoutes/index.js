@@ -9,7 +9,7 @@ router.get('/users', async (req, res) => {
     const usersData = await User.findAll();
     const users = usersData.map(user => user.get({plain: true}));
 
-    req.session.save(() => {})
+    // req.session.save(() => {})
 
     res.render('users', {
       sentence: 'This is a sentence',
@@ -24,7 +24,6 @@ router.get('/users', async (req, res) => {
   }
 });
 
-
 router.get('/users/:userId', async (req, res) => {
   try {
     const {userId} = req.params;
@@ -36,6 +35,18 @@ router.get('/users/:userId', async (req, res) => {
         }
       ]
     });
+
+    /*
+    *  {
+    *   id: 'mumbo jumbo',
+    *   username: 'hello',
+    *   todos: [
+    *   ...allTheUsersTodos
+    * ]
+    *  }
+    *
+    *
+    * */
 
     const user = userData.get({plain: true});
 

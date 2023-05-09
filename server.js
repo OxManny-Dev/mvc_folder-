@@ -34,6 +34,8 @@ const sessionConfig = {
   // maxAge: 1000 * 60 * 60 * 24
 };
 
+// /api/users/signup
+
 // Express middleware
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended: true}));
@@ -44,7 +46,7 @@ app.use(express.json());
 // until we destroy the session or the server shuts down
 app.use(session(sessionConfig));
 
-
+// /users/c75066b2-1082-4a98-8718-4e5536dbac5e
 app.use(routes);
 
 
